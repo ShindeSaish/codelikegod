@@ -1,0 +1,177 @@
+body, h1, h2, p {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background: #021826; /* A solid blue color */
+	color: #ffffff;
+	line-height: 1.6;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	text-align: center;
+	padding: 50px 0;
+}
+
+header {
+	text-align: center;
+	padding: 20px 0;
+	background: rgba(0, 0, 0, 0.2);
+	border-bottom: 2px solid #ffffff;
+}
+
+header h1 {
+	font-size: 3rem;
+	text-transform: uppercase;  	
+	letter-spacing: 2px;
+}
+
+nav ul {
+	/* position: absolute; */
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+	margin: 0;
+	left: 50px;
+}
+
+nav ul li {
+	display: inline-block;
+	margin: 0 15px;
+}
+
+nav ul li a.navs {
+	display: flex;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 1.2rem;
+	padding: 5px 10px;
+	border-radius: 5px;
+	transition: all 0.3s, color 0.3s;
+}
+nav ul li {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 1.2rem;
+	padding: 5px 5px;
+	border-radius: 5px;
+	transition: all 0.3s;
+}
+nav ul li a.navs:hover {
+	background: #ffffff;
+	color: #1e90ff;
+	scale: 1.1;
+}
+
+.hero {
+	padding: 50px 20px;
+}
+
+.hero h2 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+}
+
+.hero p {
+	font-size: 1.2rem;
+	max-width: 700px;
+	margin: auto;
+	color: #ffffffc4;
+}
+
+.btn {
+	margin: auto 120px;
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 25px;
+	background: #ffffff;
+	color: #1e90ff;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+	background: #1e90ff;
+	color: #ffffff;
+}
+
+footer {
+	background: rgba(0, 0, 0, 0.341);
+	padding: 10px 0;
+	margin-top: 30px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+footer p {
+	font-size: 0.9rem;
+	padding: 0 10px;
+}
+/* end of base */
+
+#servul{
+	position: relative;
+	display: none;
+	flex-direction: column;
+}
+#servul li.services a{
+	padding: 5px;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 1.2rem;
+	padding: 5px 10px;
+	border-radius: 5px;
+	transition: background 0.3s;
+	padding: 5px;
+	transition: scale 0.3s;
+}
+#servul li.services{
+	margin: 5px;
+	/* transition: scale; */
+}
+#servul li a:hover {
+	display: inline-flex;
+	position: relative;
+	background: #ffffff;
+	color: #1e90ff;
+	scale: 1.1;
+}
+svg{
+	position: relative;
+	top: 2px;
+	/* &&:hover{
+		filter: brightness(0);
+	} */
+}
+#amazon{
+	position: relative;
+	top: 3px;
+
+}
+#amazon:hover{
+	position: relative;
+	top: 3px;
+	& svg{
+		filter: brightness(0);
+	}
+}
+
+#msg{
+	position: absolute; 
+	top: 0; padding: 5px 7px; 
+	background-color: rgba(191, 226, 138, 0.945); 
+	color: rgb(2, 74, 2); 
+	width: 99vw; 
+	list-style: none; 
+	left: 0px; 
+	text-align: left;
+}

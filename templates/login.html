@@ -1,0 +1,69 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{%static 'css/login.css' %}">
+    <meta name="google-signin-client_id" content="207548682797-f88ei21cdiar31nqjj6s1didl8286so0apps.googleusercontent.com">
+    <style>/* General Reset */
+
+      </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>login</h2>
+<form action="slogin" method="POST">
+  {% csrf_token %}
+  
+    <div class="input-group">
+        <label for="fullname">Username</label>
+        <input type="text" id="fullname" name="name" placeholder="Enter Username or Email" required>
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="passwd" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter your password" required>
+    </div>
+  
+    <button type="submit" class="submit-btn"> Login </button>
+</form>
+    <a href="/">home </a>
+
+<!-- note: google Auth -->
+<div>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function onGoogleSignIn(credentialResponse) {
+      console.log('Encoded JWT ID token: ' + credentialResponse.credential);
+    }
+  
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "207548682797-f88ei21cdiar31nqjj6s1didl8286so0.apps.googleusercontent.com",
+        callback: onGoogleSignIn,
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" } // Customization options
+      );
+      google.accounts.id.prompt(); // Automatically prompts the user
+    };
+  </script>
+<script>
+gapi.load('auth2', function() {
+  gapi.auth2.init();
+});
+</script>
+<br/>    
+
+<div id="buttonDiv">
+</div>
+</div>
+<a id="tologin" href="signin">Don't have any accounts</a>
+
+</div>
+
+</body>
+</html>

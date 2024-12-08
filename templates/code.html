@@ -1,0 +1,69 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Cheat Sheet</title>
+	<link rel="stylesheet" href="{%static 'css/code.css' %}">
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programming Cheat Sheet</h1>
+    </header>
+    <nav>
+        <a href="programe">Programming</a>
+        <a href="cyber">Cybersecurity</a>
+    </nav>
+    <main>
+        <ul id="scrolls">
+            <p id="attTypes">Languages</p>
+            <li><a href="#python">XSS</a></li>
+            <li><a href="#java">Java</a></li>
+            <li><a href="#JS">JavaScript</a></li>
+        </ul>
+        <section>
+        <div id="CheatsPrograme">
+        <h2 id="python">Advanced Python </h2>   
+        <ul>
+            <li><strong>List Comprehension:</strong> <code>[x*2 for x in range(10) if x%2 == 0]</code></li>
+            <li><strong>Lambda Functions:</strong> <code>lambda x: x + 10</code></li>
+            <li><strong>Generator Expression:</strong> <code>(x**2 for x in range(5))</code></li>
+            <li><strong>Decorators:</strong> <code>def decorator(func): return wrapper(func)</code></li>
+            <li><strong>Context Manager:</strong> <code>with open('file.txt', 'r') as f:</code></li>
+            <li><strong>List Slicing:</strong> <code>my_list[::2]</code></li>
+            <li><strong>Unpacking:</strong> <code>a, *b, c = range(5)</code></li>
+        </ul>
+        <br />
+        <h2 id="java">Advanced Java Cheat Sheet</h2>
+        <ul>
+            <li><strong>Streams:</strong> <code>Stream.of(1, 2, 3).map(x -> x * 2).forEach(System.out::println);</code></li>
+            <li><strong>Lambda Expressions:</strong> <code>Comparator<Integer> cmp = (a, b) -> a - b;</code></li>
+            <li><strong>Method References:</strong> <code>list.forEach(System.out::println);</code></li>
+            <li><strong>Generics:</strong> <code>List<T> list = new ArrayList<>();</code></li>
+            <li><strong>Optional Class:</strong> <code>Optional<Integer> opt = Optional.ofNullable(value);</code></li>
+            <li><strong>Functional Interface:</strong> <code>public interface MyInterface { void doSomething(); }</code></li>
+            <li><strong>Stream Collectors:</strong> <code>Collectors.toList()</code></li>
+        </ul>
+        <h2 id="JS">Advanced JavaScript Cheat Sheet</h2>
+        <ul>
+            <li><strong>Arrow Functions:</strong> <code>const add = (a, b) => a + b;</code></li>
+            <li><strong>Destructuring Assignment:</strong> <code>const {name, age} = person;</code></li>
+            <li><strong>Promises:</strong> <code>fetch('url').then(response => response.json()).then(data => console.log(data));</code></li>
+            <li><strong>Async/Await:</strong> <code>async function fetchData() { let response = await fetch(url); }</code></li>
+            <li><strong>Spread Operator:</strong> <code>const newArray = [...arr1, ...arr2];</code></li>
+            <li><strong>Rest Parameters:</strong> <code>function sum(...args) { return args.reduce((a, b) => a + b, 0); }</code></li>
+            <li><strong>Event Delegation:</strong> <code>parentElement.addEventListener('click', function(e) { if (e.target.matches('.child')) { ... } });</code></li>
+        </ul>
+            
+            
+        </h2>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 Cheat Sheet
+    </footer>
+</body>
+</html>

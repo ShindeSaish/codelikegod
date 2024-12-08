@@ -1,0 +1,298 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Cheat Sheet</title>
+	<link rel="stylesheet" href="{%static 'css/cyber.css' %}">
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cybersecurity Cheat Sheet</h1>
+    </header>
+    <nav>
+        <a href="programe">Programming</a>
+        <a href="cyber">Cybersecurity</a>
+    </nav>
+    <main>
+        <section>
+            <h2>Attack Techniques</h2>
+			<!-- todo: make scroll and id anchor -->
+			 
+			<ul>
+				<p id="attTypes">Types of Attacks</p>
+				<li><a href="#XSS">XSS</a></li>
+				<li><a href="#SQLi">SQLi</a></li>
+				<li><a href="#ParaT">Parameter Temptaion</a></li>
+				<li><a href="#DOS">DoS</a></li>
+				<li><a href="#DDOS">DDoS</a></li>
+				<li><a href="#MITM">MITM</a></li>
+				<li><a href="#PA">Password Attacks</a></li>
+				<li><a href="#ZDE">Zero-Day Exploit</a></li>
+				<li><a href="#SH">Session Hijacking</a></li>
+				<li><a href="#CSRF">CSRF</a></li>
+
+			</ul>
+
+<!-- Note: Ceatcodes Start from here  -->
+<section>
+	<h1 style="font-size: xx-large;">CheatCodes</h1>
+	<h2 id="XSS">• XSS</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Description</th>
+			<th>Example</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Stored XSS</td>
+			<td>Malicious scripts are permanently stored on a server (e.g., in a database or comment section).</td>
+			<td><code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></td>
+		</tr>
+		<tr>
+			<td>Reflected XSS</td>
+			<td>Malicious scripts are reflected off a web server, usually via a URL or input field.</td>
+			<td><code>https://example.com?q=&lt;script&gt;alert('XSS')&lt;/script&gt;</code></td>
+		</tr>
+		<tr>
+			<td>DOM-Based XSS</td>
+			<td>Malicious scripts manipulate the Document Object Model (DOM) directly on the client-side.</td>
+			<td><code>document.write(location.hash)</code> if the URL hash contains script tags.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="SQLi">• SQLi (SQL Injection)</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Classic SQLi</td>
+            <td>Inject SQL code through input fields.</td>
+            <td><code>SELECT * FROM users WHERE id='1' OR '1'='1';</code></td>
+        </tr>
+        <tr>
+            <td>Blind SQLi</td>
+            <td>Extract data without direct feedback.</td>
+            <td><code>AND (SELECT ASCII(SUBSTRING((SELECT DATABASE()),1,1))) &gt; 64</code></td>
+        </tr>
+        <tr>
+            <td>Error-Based SQLi</td>
+            <td>Exploit database error messages to gather information.</td>
+            <td><code>' UNION SELECT null, version(), null --</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="CSRF">• Cross Site Request Forgery (CSRF)</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Impact</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Account Hijacking</td>
+            <td>Forces a victim's browser to perform unintended actions.</td>
+            <td><code>&lt;img src="http://example.com/change-password?new=p@ss"&gt;</code></td>
+        </tr>
+        <tr>
+            <td>Data Modification</td>
+            <td>Changes data using authenticated sessions.</td>
+            <td>Submitting a POST request to update a profile.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="ParaT">• Parameter Tampering</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Price Manipulation</td>
+            <td>Alter parameters to reduce item prices.</td>
+            <td><code>item_price=10 → item_price=1</code></td>
+        </tr>
+        <tr>
+            <td>Privilege Escalation</td>
+            <td>Modify user roles via parameters.</td>
+            <td><code>role=user → role=admin</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="DOS">• Denial of Service (DoS)</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Network Flooding</td>
+            <td>Overload network resources to disrupt services.</td>
+            <td>Saturating a server with ping requests.</td>
+        </tr>
+        <tr>
+            <td>Application Crash</td>
+            <td>Exploit application vulnerabilities to crash services.</td>
+            <td>Sending malformed packets to a server.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="DDOS">• Distributed Denial of Service (DDoS)</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Botnet Attack</td>
+            <td>Use compromised devices to attack a single target.</td>
+            <td>Sending simultaneous requests from thousands of devices.</td>
+        </tr>
+        <tr>
+            <td>Amplification</td>
+            <td>Exploit vulnerable services to amplify attack traffic.</td>
+            <td>DNS reflection or NTP amplification.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="MITM">• Man-in-the-Middle (MITM)</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Impact</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Data Interception</td>
+            <td>Intercept and read sensitive information in transit.</td>
+            <td>Capturing HTTP packets using Wireshark.</td>
+        </tr>
+        <tr>
+            <td>Session Hijacking</td>
+            <td>Stealing session cookies to impersonate users.</td>
+            <td>Using captured cookies to access a victim's account.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="PA">• Password Attacks</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Brute Force</td>
+            <td>Attempts to guess passwords by systematically trying all possible combinations.</td>
+            <td>Using a script to try passwords like `password1`, `password2`, etc.</td>
+        </tr>
+        <tr>
+            <td>Dictionary Attack</td>
+            <td>Uses a predefined list of likely passwords to attempt access.</td>
+            <td>Common list: `admin`, `123456`, `qwerty`.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2 id="ZDE">• Zero-Day Exploit</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Impact</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Application Vulnerabilities</td>
+            <td>Exploits an unpatched vulnerability in software.</td>
+            <td>Attacking a newly discovered flaw in a web browser.</td>
+        </tr>
+        <tr>
+            <td>Critical Systems</td>
+            <td>Targets vulnerabilities in critical infrastructure before a fix is available.</td>
+            <td>Exploiting SCADA systems in industrial facilities.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="SH">Session Hijacking</h2>
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Cookie Stealing</td>
+            <td>Stealing session cookies to impersonate a legitimate user.</td>
+            <td>Using XSS to capture cookies and gaining access to a user's account.</td>
+        </tr>
+        <tr>
+            <td>Session Fixation</td>
+            <td>Forcing a user to use a known session ID that can later be hijacked.</td>
+            <td>Setting a session ID via a URL or a cookie, then using it to hijack the session.</td>
+        </tr>
+        <tr>
+            <td>Man-in-the-Middle (MITM)</td>
+            <td>Intercepting session tokens during transmission.</td>
+            <td>Intercepting cookies or session tokens from an insecure connection.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+</section>
+<!-- Note: Ceatcodes Ends here  -->
+
+    </main>
+    <footer>
+        &copy; 2024 Cheat Sheet
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+    <link rel="stylesheet" href="{%static 'css/signin.css' %}">
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="subSign" method="POST">
+            {% csrf_token %}
+          
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="passwd" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" placeholder="Create a password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password"  name="c_passwd" placeholder="Confirm your password" required>
+            </div>
+            <button type="submit" id="signin" class="submit-btn">Sign Up</button>
+        </form>
+        <div>
+<script>
+    let pass = document.getElementById('password');
+    let cpass = document.getElementById('confirm_password');
+    let btn = document.getElementById('signin');
+    pass.addEventListener('input', checkpass);
+    cpass.addEventListener('input', checkpass);
+    function checkpass(){
+        if(pass.value === cpass.value){
+            btn.removeAttribute("disabled");
+            btn.style.backgroundColor = '#3b82f6';
+
+            
+        }else{
+            btn.setAttribute("disabled", 'true');
+            btn.style.backgroundColor = 'red';
+        }
+}
+</script>
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <script>
+                function onGoogleSignIn(credentialResponse) {
+                  console.log('Encoded JWT ID token: ' + credentialResponse.credential);
+                }
+              
+                window.onload = function () {
+                  google.accounts.id.initialize({
+                    client_id: "207548682797-f88ei21cdiar31nqjj6s1didl8286so0.apps.googleusercontent.com",
+                    callback: onGoogleSignIn,
+                  });
+                  google.accounts.id.renderButton(
+                    document.getElementById("buttonDiv"),
+                    { theme: "outline", size: "large" } // Customization options
+                  );
+                  google.accounts.id.prompt(); // Automatically prompts the user
+                };
+              </script>
+            <br/>    
+            <div id="buttonDiv">
+            </div>
+            </div>
+    <a id="tologin" href="login"> Already have an account </a>
+    </div>
+
+</body>
+</html>

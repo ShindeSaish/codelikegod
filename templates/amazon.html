@@ -1,0 +1,40 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Deals - Amazon Affiliate</title>
+    <link rel="stylesheet" href="{%static 'css/amazon.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Top Deals</h1>
+        <p>Best Products for Hackers and programmers</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <!-- <li><a href="#">Categories</a></li> -->
+            <li><a href="#productsid">Top Products</a></li>
+            <li><a href="contact">Contact Us</a></li>
+            <li><a href="about">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <h2>Find the Best Amazon Deals Here!</h2>
+        <p>We curate top-rated products for programmers and hackers. Explore now and shop smart!</p>
+        <a href="#productsid" class="btn">Shop Now</a>
+    </div>
+    <div id="productsid">
+<!-- ! -Products details will be here -->{{codeHTML}}
+        
+    </div>
+<script>
+
+</script>
+    <footer>
+        <p>&copy; 2024 Top Deals. All rights reserved. As an Amazon Associate, we earn from qualifying purchases.</p>
+    </footer>
+</body>
+</html>

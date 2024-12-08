@@ -1,0 +1,70 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title></title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+<style>
+</style>
+</head>   
+
+<body>
+<header>
+<h1>Welcome to My Website</h1>
+<nav>
+<ul>
+    <li><a class="navs" href="/">Home</a></li>
+    <li><a class="navs" href="about">About</a></li>
+    <li> <a href="amazon" class="navs" id="amazon"><svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>Shopping</a></li>
+    <li><a class="navs" href="contact">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+<div class="container">
+<div class="hero">
+  {% if messages %}
+  <ul class="messages" onclick="closei()" id="message" >
+      {% for message in messages %}
+      <li id="msg" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}<a id="close" style="color: rgb(0, 70, 0); position: absolute; right: 15px;" >X</a></li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  <h2>Your Gateway to Innovation</h2>
+  <p>
+    "Your one-stop solution for quick references and essential guides.
+    Explore categorized cheat sheets to simplify your learning and boost productivity.
+    Start by selecting a topic from the menu below!"
+  </p>
+  <div>
+    <a href="programe" class="btn">Programming</a>
+    <a href="cyber" class="btn">Cyber Security</a>
+  </div>
+</div>
+<main>
+<h1 style="display: none;">Code Cheat sheets</h1>
+</main>
+</div>
+<footer>
+<p>&copy; 2024 My Website. All rights reserved.</p>
+</footer>
+<script>
+  function showServ(){
+      let a = document.getElementById('servul');
+      a.style.display = 'flex';
+}
+  function hideServ(){
+      let a = document.getElementById('servul');
+      a.style.display = 'none';
+}
+function closei(){
+  k = document.getElementById('message');
+  k.style.display = 'none';
+}
+</script>
+</body>
+</html>
